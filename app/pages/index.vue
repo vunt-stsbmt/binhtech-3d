@@ -9,7 +9,7 @@
 </template>
 <script setup>
 useHead({
-  title: 'Binhtech3D - Chuyên in ấn 3d linh kiện',
+  title: 'bintech3D - Chuyên in ấn 3d linh kiện',
   meta: [
     { name: 'description', content: 'My amazing site.' },
   ],

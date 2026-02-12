@@ -11,11 +11,6 @@
           <button
             class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-500 hover:text-blue-700"
             type="button">
-            Công nghệ
-          </button>
-          <button
-            class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-500 hover:text-blue-700"
-            type="button">
             Mới nhất
           </button>
         </div>
@@ -25,18 +20,19 @@
         Đang tải sản phẩm...
       </div>
 
-      <div v-else-if="products.length === 0" class="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-500">
+      <div v-else-if="products.length === 0"
+        class="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-500">
         Chưa có sản phẩm để hiển thị.
       </div>
 
       <div v-else class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="cong-nghe">
-        <article v-for="item in products" :key="item.id"
+        <article v-for="item in visibleProducts" :key="item.id"
           class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
           <div class="relative h-56 overflow-hidden">
             <img :src="item.image" :alt="item.name" class="h-full w-full object-cover" loading="lazy">
             <span
               class="absolute right-3 top-3 rounded-full border border-blue-200 bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-blue-700">
-              {{ item.tag }} công nghệ
+              {{ item.tag }}
             </span>
           </div>
           <div class="space-y-4 p-5">
@@ -58,12 +54,16 @@
         </article>
       </div>
 
-      <div class="mt-10 flex justify-center">
+      <div v-if="!loading && products.length > 0" class="mt-10 flex justify-center">
         <button
+          v-if="hasMoreProducts"
           class="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-blue-500 hover:text-blue-700"
-          type="button">
-          Xem toàn bộ bộ sưu tập
+          type="button"
+          @click="loadMoreProducts"
+        >
+          Xem thêm
         </button>
+        <p v-else class="text-sm font-medium text-slate-500">Bạn đã xem tất cả sản phẩm.</p>
       </div>
     </div>
   </section>
@@ -71,6 +71,24 @@
 
 <script lang="ts" setup>
 const { products, loading, fetchProducts } = useProducts()
+const pageSize = 6
+const visibleCount = ref(pageSize)
+
+const visibleProducts = computed(() => {
+  return products.value.slice(0, visibleCount.value)
+})
+
+const hasMoreProducts = computed(() => {
+  return visibleCount.value < products.value.length
+})
+
+const loadMoreProducts = () => {
+  visibleCount.value += pageSize
+}
+
+watch(products, () => {
+  visibleCount.value = pageSize
+})
 
 onMounted(() => {
   fetchProducts()

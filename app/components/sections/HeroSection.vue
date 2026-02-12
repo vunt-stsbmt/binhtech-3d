@@ -9,7 +9,8 @@
           Biến ý tưởng thành <span class="text-blue-600">sản phẩm in 3D</span> thực tế
         </h1>
         <p class="mt-5 max-w-2xl text-lg text-slate-600">
-          Từ linh kiện kỹ thuật đến mô hình trưng bày, binhtech 3d hỗ trợ in nhanh, đúng vật liệu và tối ưu chi phí theo đúng mục đích sử dụng.
+          Từ linh kiện kỹ thuật đến mô hình trưng bày, bintech 3d hỗ trợ in nhanh, đúng vật liệu và tối ưu chi phí theo
+          đúng mục đích sử dụng.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">

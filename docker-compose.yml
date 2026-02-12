@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  nuxt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bintech-nuxt-dev
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: pnpm dev --host 0.0.0.0 --port 3001

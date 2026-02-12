@@ -6,15 +6,13 @@
       <p class="mt-2 text-sm text-slate-600">Bấm vào từng câu hỏi để mở rộng nội dung trả lời.</p>
 
       <div class="mt-8 grid gap-4">
-        <details
-          v-for="(qa, index) in qas"
-          :key="qa.question"
-          :open="index === 0"
-          class="group rounded-2xl border border-slate-200 bg-white p-5 open:border-blue-300"
-        >
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-slate-900">
+        <details v-for="(qa, index) in qas" :key="qa.question" :open="index === 0"
+          class="group rounded-2xl border border-slate-200 bg-white p-5 open:border-blue-300">
+          <summary
+            class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-slate-900">
             <span>{{ qa.question }}</span>
-            <span class="text-xl leading-none text-slate-400 transition group-open:rotate-45 group-open:text-blue-600">+</span>
+            <span
+              class="text-xl leading-none text-slate-400 transition group-open:rotate-45 group-open:text-blue-600">+</span>
           </summary>
           <p class="mt-3 text-sm leading-6 text-slate-600">
             {{ qa.answer }}
@@ -36,7 +34,7 @@ const qas = [
     answer: "Bạn gửi file 3D (STL/STEP/OBJ), số lượng, chất liệu dự kiến và mục đích sử dụng. Chúng tôi sẽ báo giá chi tiết theo từng lựa chọn."
   },
   {
-    question: "Binhtech 3D có hỗ trợ giao hàng toàn quốc không?",
+    question: "bintech 3D có hỗ trợ giao hàng toàn quốc không?",
     answer: "Có. Chúng tôi nhận giao hàng toàn quốc qua các đơn vị vận chuyển và có chính sách đóng gói an toàn cho sản phẩm in."
   }
 ]

@@ -10,7 +10,7 @@
         <div class="mt-10 space-y-6 text-sm">
           <div>
             <p class="text-slate-500">Email</p>
-            <p class="font-semibold text-slate-900">solutions@binhtech3d.com</p>
+            <p class="font-semibold text-slate-900">solutions@bintech3d.com</p>
           </div>
           <div>
             <p class="text-slate-500">Văn phòng</p>
@@ -26,25 +26,20 @@
               <span class="mb-2 block text-slate-600">Họ và tên</span>
               <input
                 class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-                type="text"
-                placeholder="Nguyễn Văn A"
-              >
+                type="text" placeholder="Nguyễn Văn A">
             </label>
             <label class="text-sm">
               <span class="mb-2 block text-slate-600">Email</span>
               <input
                 class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-                type="email"
-                placeholder="ban@congty.com"
-              >
+                type="email" placeholder="ban@congty.com">
             </label>
           </div>
 
           <label class="text-sm">
             <span class="mb-2 block text-slate-600">Loại dự án</span>
             <select
-              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-            >
+              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
               <option>Linh kiện công nghiệp</option>
               <option>Mô hình y tế</option>
               <option>Nghệ thuật và điêu khắc</option>
@@ -54,17 +49,13 @@
 
           <label class="text-sm">
             <span class="mb-2 block text-slate-600">Nội dung</span>
-            <textarea
-              rows="5"
+            <textarea rows="5"
               class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-              placeholder="Mô tả yêu cầu in 3D của bạn..."
-            ></textarea>
+              placeholder="Mô tả yêu cầu in 3D của bạn..."></textarea>
           </label>
 
-          <button
-            type="submit"
-            class="mt-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
-          >
+          <button type="submit"
+            class="mt-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
             Gửi yêu cầu
           </button>
         </form>

@@ -12,21 +12,9 @@
       </div>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <a
-          v-for="channel in channels"
-          :key="channel.name"
-          :href="channel.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
-        >
-          <img
-            :src="channel.icon"
-            :alt="channel.type"
-            class="h-12 w-12 rounded-xl border border-slate-200 object-cover"
-            loading="lazy"
-          >
-          <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">{{ channel.type }}</p>
+        <a v-for="channel in channels" :key="channel.name" :href="channel.url" target="_blank" rel="noopener noreferrer"
+          class="rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md">
+          <img :src="channel.icon" :alt="channel.name" class="w-14 rounded-xl" loading="lazy">
           <h3 class="mt-2 text-xl font-bold text-slate-900">{{ channel.name }}</h3>
           <p class="mt-2 text-sm text-slate-600">{{ channel.description }}</p>
           <p class="mt-4 text-sm font-semibold text-blue-700">Truy cập kênh</p>
@@ -39,25 +27,22 @@
 <script lang="ts" setup>
 const channels = [
   {
-    type: "Facebook",
-    name: "Binhtech 3D",
+    name: "bintech 3D",
     description: "Nhắn tin fanpage để gửi mẫu, mô tả nhu cầu và nhận tư vấn nhanh.",
     url: "https://facebook.com",
-    icon: "https://placehold.co/96x96/1877f2/ffffff?text=FB"
+    icon: "/fb.png"
   },
   {
-    type: "Zalo",
-    name: "Zalo OA Binhtech 3D",
+    name: "Zalo OA bintech 3D",
     description: "Trao đổi trực tiếp, gửi file và nhận báo giá theo từng đơn hàng.",
     url: "https://zalo.me",
-    icon: "https://placehold.co/96x96/0068ff/ffffff?text=Zalo"
+    icon: "/zalo.png"
   },
   {
-    type: "Shopee",
-    name: "Shopee Binhtech 3D",
+    name: "Shopee bintech 3D",
     description: "Đặt các sản phẩm mẫu, theo dõi ưu đãi và đánh giá từ khách hàng.",
     url: "https://shopee.vn",
-    icon: "https://placehold.co/96x96/ee4d2d/ffffff?text=Shopee"
+    icon: "/shoppe.png"
   }
 ]
 </script>
