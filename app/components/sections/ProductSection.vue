@@ -21,8 +21,16 @@
         </div>
       </div>
 
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="cong-nghe">
-        <article v-for="item in products" :key="item.name"
+      <div v-if="loading" class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-500">
+        Đang tải sản phẩm...
+      </div>
+
+      <div v-else-if="products.length === 0" class="mt-8 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-500">
+        Chưa có sản phẩm để hiển thị.
+      </div>
+
+      <div v-else class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="cong-nghe">
+        <article v-for="item in products" :key="item.id"
           class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
           <div class="relative h-56 overflow-hidden">
             <img :src="item.image" :alt="item.name" class="h-full w-full object-cover" loading="lazy">
@@ -62,5 +70,9 @@
 </template>
 
 <script lang="ts" setup>
-import products from "../../data/products.json"
+const { products, loading, fetchProducts } = useProducts()
+
+onMounted(() => {
+  fetchProducts()
+})
 </script>
