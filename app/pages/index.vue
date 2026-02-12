@@ -8,6 +8,10 @@
   </main>
 </template>
 <script setup>
+definePageMeta({
+  layout: "default"
+})
+
 useHead({
   title: 'bintech3D - Chuyên in ấn 3d linh kiện',
   meta: [

@@ -25,24 +25,9 @@
 </template>
 
 <script lang="ts" setup>
-const channels = [
-  {
-    name: "bintech 3D",
-    description: "Nhắn tin fanpage để gửi mẫu, mô tả nhu cầu và nhận tư vấn nhanh.",
-    url: "https://facebook.com",
-    icon: "/fb.png"
-  },
-  {
-    name: "Zalo OA bintech 3D",
-    description: "Trao đổi trực tiếp, gửi file và nhận báo giá theo từng đơn hàng.",
-    url: "https://zalo.me",
-    icon: "/zalo.png"
-  },
-  {
-    name: "Shopee bintech 3D",
-    description: "Đặt các sản phẩm mẫu, theo dõi ưu đãi và đánh giá từ khách hàng.",
-    url: "https://shopee.vn",
-    icon: "/shoppe.png"
-  }
-]
+const { channels, fetchSocialChannels } = useSocialChannels()
+
+onMounted(() => {
+  fetchSocialChannels()
+})
 </script>

@@ -34,6 +34,11 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  layout: "admin",
+  middleware: "admin-auth"
+})
+
 useHead({
   title: "Đăng nhập Admin - bintech 3D",
   meta: [{ name: "description", content: "Đăng nhập khu vực quản trị bintech 3D" }]
