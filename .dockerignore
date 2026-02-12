@@ -8,5 +8,3 @@ dist
 npm-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-.env
-.env.*
