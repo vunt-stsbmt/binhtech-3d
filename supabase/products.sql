@@ -66,3 +66,17 @@ for all
 to anon, authenticated
 using (true)
 with check (true);
+
+-- 5) Site settings (private)
+create table if not exists public.site_settings (
+  setting_key text primary key,
+  setting_value text not null default '',
+  updated_at timestamptz not null default now()
+);
+
+alter table public.site_settings enable row level security;
+
+drop policy if exists "site_settings_select_public" on public.site_settings;
+drop policy if exists "site_settings_write_public" on public.site_settings;
+
+-- No public policies: only service-role should read/write this table.

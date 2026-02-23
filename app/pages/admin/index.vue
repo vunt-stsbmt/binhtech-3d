@@ -28,7 +28,7 @@
       </div>
     </section>
 
-    <section class="mt-8 grid gap-6 xl:grid-cols-2">
+    <section class="mt-8 grid gap-6 xl:grid-cols-3">
       <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <div class="flex items-center justify-between gap-3">
           <h2 class="text-xl font-bold text-slate-900">Sản phẩm mới</h2>
@@ -75,6 +75,21 @@
           </div>
           <p v-if="channels.length === 0" class="text-sm text-slate-500">Chưa có kênh liên hệ.</p>
         </div>
+      </article>
+
+      <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="flex items-center justify-between gap-3">
+          <h2 class="text-xl font-bold text-slate-900">Telegram Bot</h2>
+          <NuxtLink
+            to="/admin/telegram"
+            class="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:text-blue-700"
+          >
+            Cấu hình Telegram
+          </NuxtLink>
+        </div>
+        <p class="mt-4 text-sm text-slate-600">
+          Dùng để nhận thông tin từ form liên hệ trên website qua Telegram Bot API.
+        </p>
       </article>
     </section>
   </main>

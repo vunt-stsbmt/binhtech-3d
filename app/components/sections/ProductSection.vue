@@ -37,7 +37,29 @@
           </div>
           <div class="space-y-4 p-5">
             <h3 class="text-2xl font-semibold leading-tight text-slate-900">{{ item.name }}</h3>
-            <p class="text-sm text-slate-600">{{ item.description }}</p>
+            <p class="min-h-[4.5rem] text-sm leading-6 text-slate-600">
+              <template v-if="isDescriptionExpanded(item.id) || !canToggleDescription(item.description)">
+                {{ item.description }}
+                <button
+                  v-if="canToggleDescription(item.description)"
+                  class="ml-1 inline text-sm font-semibold text-blue-700 transition hover:text-blue-900"
+                  type="button"
+                  @click="toggleDescription(item.id)"
+                >
+                  Thu gọn
+                </button>
+              </template>
+              <template v-else>
+                {{ getCollapsedDescription(item.description) }}
+                <button
+                  class="ml-1 inline text-sm font-semibold text-blue-700 transition hover:text-blue-900"
+                  type="button"
+                  @click="toggleDescription(item.id)"
+                >
+                  ...
+                </button>
+              </template>
+            </p>
             <div class="flex gap-2">
               <button
                 class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
@@ -73,6 +95,8 @@
 const { products, loading, fetchProducts } = useProducts()
 const pageSize = 6
 const visibleCount = ref(pageSize)
+const DESCRIPTION_PREVIEW_LENGTH = 120
+const expandedDescriptions = ref<Record<string, boolean>>({})
 
 const visibleProducts = computed(() => {
   return products.value.slice(0, visibleCount.value)
@@ -86,8 +110,26 @@ const loadMoreProducts = () => {
   visibleCount.value += pageSize
 }
 
+const canToggleDescription = (description: string) => {
+  return description.length > DESCRIPTION_PREVIEW_LENGTH
+}
+
+const getCollapsedDescription = (description: string) => {
+  return description.slice(0, DESCRIPTION_PREVIEW_LENGTH).trimEnd()
+}
+
+const isDescriptionExpanded = (id: string | number) => {
+  return expandedDescriptions.value[String(id)] === true
+}
+
+const toggleDescription = (id: string | number) => {
+  const key = String(id)
+  expandedDescriptions.value[key] = !expandedDescriptions.value[key]
+}
+
 watch(products, () => {
   visibleCount.value = pageSize
+  expandedDescriptions.value = {}
 })
 
 onMounted(() => {

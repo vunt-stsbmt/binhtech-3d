@@ -73,3 +73,20 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Telegram Contact Form
+
+Project now supports sending contact form data to Telegram Bot API.
+
+1. Run SQL in `supabase/products.sql` to create/update tables (includes `site_settings`).
+2. Go to `/admin/telegram` and set:
+   - `Telegram Bot Token`
+   - `Telegram Chat ID`
+3. Submit form in `ContactSection` and data will be sent to Telegram via `POST /api/contact/telegram`.
+
+You can also set fallback values in environment variables:
+
+```bash
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+```

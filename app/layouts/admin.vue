@@ -36,6 +36,13 @@
               <span>Kênh liên hệ</span>
             </span>
           </NuxtLink>
+          <NuxtLink to="/admin/telegram" class="block rounded-xl px-4 py-3 font-semibold transition"
+            :class="isTelegramPage ? 'bg-white text-slate-900' : 'text-slate-300 hover:bg-slate-800 hover:text-white'">
+            <span class="inline-flex items-center gap-2">
+              <KeyRound class="h-4 w-4" />
+              <span>Telegram</span>
+            </span>
+          </NuxtLink>
         </nav>
 
         <div class="border-t border-slate-700 px-4 py-4">
@@ -108,6 +115,14 @@
                 <span>Kênh liên hệ</span>
               </span>
             </NuxtLink>
+            <NuxtLink to="/admin/telegram" class="block rounded-xl px-4 py-3 font-semibold transition"
+              :class="isTelegramPage ? 'bg-white text-slate-900' : 'text-slate-300 hover:bg-slate-800 hover:text-white'"
+              @click="closeMobileMenu">
+              <span class="inline-flex items-center gap-2">
+                <KeyRound class="h-4 w-4" />
+                <span>Telegram</span>
+              </span>
+            </NuxtLink>
           </nav>
 
           <div class="border-t border-slate-700 px-4 py-4">
@@ -162,7 +177,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Globe, LayoutDashboard, LogOut, Menu, Package, Share2, X } from "lucide-vue-next"
+import { Globe, KeyRound, LayoutDashboard, LogOut, Menu, Package, Share2, X } from "lucide-vue-next"
 
 const route = useRoute()
 const mobileMenuOpen = ref(false)
@@ -173,6 +188,7 @@ const isLoginPage = computed(() => normalizePath(route.path) === "/admin/login")
 const isDashboardPage = computed(() => normalizePath(route.path) === "/admin")
 const isProductsPage = computed(() => normalizePath(route.path) === "/admin/products")
 const isSocialChannelsPage = computed(() => normalizePath(route.path) === "/admin/social-channels")
+const isTelegramPage = computed(() => normalizePath(route.path) === "/admin/telegram")
 
 const openMobileMenu = () => {
   mobileMenuOpen.value = true
